@@ -12,11 +12,11 @@
         }
     ],
     "require": {
-        "php": "^5.3.9|^7.0",
-        "symfony/framework-bundle": "~2.3|~3.0"
+        "php": "^7.3",
+        "symfony/framework-bundle": "~3.0|~4.0"
     },
     "require-dev": {
-        "twig/twig": "^1.12|^2.0",
+        "twig/twig": "^2.0",
         "symfony-cmf/testing": "^2.0",
         "doctrine/phpcr-odm": "^1.4|^2.0",
         "doctrine/annotations": "^1.1.2",
