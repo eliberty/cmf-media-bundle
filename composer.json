@@ -12,17 +12,19 @@
         }
     ],
     "require": {
-        "php": "^7.3",
-        "symfony/framework-bundle": "~3.0|~4.0"
+        "php": ">=7.3",
+        "symfony/framework-bundle": "~4.0|~5.0"
     },
     "require-dev": {
-        "twig/twig": "^2.0",
-        "symfony-cmf/testing": "^2.0",
+        "twig/twig": "^2.0|^3.0",
+        "symfony-cmf/testing": "^3.0",
         "doctrine/phpcr-odm": "^1.4|^2.0",
         "doctrine/annotations": "^1.1.2",
-        "jms/serializer-bundle": "^0.12|^1.0",
-        "liip/imagine-bundle": "^1.0.4",
-        "mikey179/vfsStream": "^1.2"
+        "jms/serializer-bundle": "^3.0",
+        "liip/imagine-bundle": "^2.0",
+        "mikey179/vfsstream": "^1.2",
+        "jackalope/jackalope": "^1.4",
+        "jackalope/jackalope-doctrine-dbal": "^1.7"
     },
     "suggest": {
         "symfony-cmf/core-bundle": "Simplifies configuration with other CMF bundles",
