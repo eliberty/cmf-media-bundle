@@ -12,7 +12,7 @@
 namespace Symfony\Cmf\Bundle\MediaBundle\Tests\Resources\DataFixtures\Phpcr;
 
 use Doctrine\Common\DataFixtures\FixtureInterface;
-use Doctrine\Common\Persistence\ObjectManager;
+use Doctrine\Persistence\ObjectManager;
 use PHPCR\Util\NodeHelper;
 use Doctrine\ODM\PHPCR\Document\Generic;
 use Symfony\Cmf\Bundle\MediaBundle\Doctrine\Phpcr\File;

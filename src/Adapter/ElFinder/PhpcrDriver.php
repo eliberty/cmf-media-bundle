@@ -11,11 +11,11 @@
 
 namespace Symfony\Cmf\Bundle\MediaBundle\Adapter\ElFinder;
 
-use Doctrine\Common\Persistence\ManagerRegistry;
+use Doctrine\Persistence\ManagerRegistry;
 use Doctrine\ODM\PHPCR\Document\Generic;
 use Doctrine\ODM\PHPCR\Document\Resource;
 use Doctrine\ODM\PHPCR\DocumentManager;
-use Imagine\Filter\ FilterInterface;
+use Imagine\Filter\FilterInterface;
 use PHPCR\Util\PathHelper;
 use Symfony\Cmf\Bundle\MediaBundle\DirectoryInterface;
 use Symfony\Cmf\Bundle\MediaBundle\Doctrine\Phpcr\Directory;

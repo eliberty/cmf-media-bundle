@@ -11,7 +11,7 @@
 
 namespace Symfony\Cmf\Bundle\MediaBundle\Tests\Unit\Doctrine;
 
-use Doctrine\Common\Persistence\Event\LifecycleEventArgs;
+use Doctrine\Persistence\Event\LifecycleEventArgs;
 use Doctrine\ODM\PHPCR\Document\File;
 use org\bovigo\vfs\vfsStream;
 use Symfony\Cmf\Bundle\MediaBundle\Doctrine\DoctrineStreamRewindSubscriber;

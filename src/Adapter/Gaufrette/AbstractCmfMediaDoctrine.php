@@ -11,7 +11,7 @@
 
 namespace Symfony\Cmf\Bundle\MediaBundle\Adapter\Gaufrette;
 
-use Doctrine\Common\Persistence\ManagerRegistry;
+use Doctrine\Persistence\ManagerRegistry;
 use Gaufrette\Adapter;
 use Gaufrette\Adapter\ChecksumCalculator;
 use Gaufrette\Adapter\ListKeysAware;
@@ -345,7 +345,7 @@ abstract class AbstractCmfMediaDoctrine implements Adapter, ChecksumCalculator, 
      * Get the object manager from the registry, based on the current
      * managerName.
      *
-     * @return \Doctrine\Common\Persistence\ObjectManager
+     * @return \Doctrine\Persistence\ObjectManager
      */
     public function getObjectManager()
     {

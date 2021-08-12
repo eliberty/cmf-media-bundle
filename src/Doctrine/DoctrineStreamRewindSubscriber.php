@@ -12,7 +12,7 @@
 namespace Symfony\Cmf\Bundle\MediaBundle\Doctrine;
 
 use Doctrine\Common\EventSubscriber;
-use Doctrine\Common\Persistence\Event\LifecycleEventArgs;
+use Doctrine\Persistence\Event\LifecycleEventArgs;
 use Symfony\Cmf\Bundle\MediaBundle\BinaryInterface;
 
 /**

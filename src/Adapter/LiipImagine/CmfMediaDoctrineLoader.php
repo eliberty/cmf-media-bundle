@@ -11,7 +11,7 @@
 
 namespace Symfony\Cmf\Bundle\MediaBundle\Adapter\LiipImagine;
 
-use Doctrine\Common\Persistence\ManagerRegistry;
+use Doctrine\Persistence\ManagerRegistry;
 use Imagine\Image\ImagineInterface;
 use Liip\ImagineBundle\Binary\Loader\AbstractDoctrineLoader;
 use Symfony\Cmf\Bundle\MediaBundle\BinaryInterface;
