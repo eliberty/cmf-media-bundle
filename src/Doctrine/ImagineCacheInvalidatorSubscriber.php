@@ -12,7 +12,7 @@
 namespace Symfony\Cmf\Bundle\MediaBundle\Doctrine;
 
 use Doctrine\Common\EventSubscriber;
-use Doctrine\Common\Persistence\Event\LifecycleEventArgs;
+use Doctrine\Persistence\Event\LifecycleEventArgs;
 use Doctrine\ODM\PHPCR\Document\Resource;
 use Liip\ImagineBundle\Imagine\Cache\CacheManager;
 use Symfony\Cmf\Bundle\MediaBundle\ImageInterface;

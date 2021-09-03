@@ -11,7 +11,7 @@
 
 namespace Symfony\Cmf\Bundle\MediaBundle\Doctrine\Phpcr;
 
-use Doctrine\Common\Persistence\ManagerRegistry;
+use Doctrine\Persistence\ManagerRegistry;
 use Doctrine\Common\Util\ClassUtils;
 use Doctrine\ODM\PHPCR\DocumentManager;
 use PHPCR\Util\PathHelper;

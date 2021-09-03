@@ -11,7 +11,7 @@
 
 namespace Symfony\Cmf\Bundle\MediaBundle\Adapter\ElFinder;
 
-use Doctrine\Common\Persistence\ManagerRegistry;
+use Doctrine\Persistence\ManagerRegistry;
 use Doctrine\ODM\PHPCR\Document\Generic;
 use Doctrine\ODM\PHPCR\DocumentManager;
 use elFinderVolumeDriver;

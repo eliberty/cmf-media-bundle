@@ -11,8 +11,8 @@
 
 namespace Symfony\Cmf\Bundle\MediaBundle\Controller;
 
-use Doctrine\Common\Persistence\ManagerRegistry;
-use Doctrine\Common\Persistence\ObjectManager;
+use Doctrine\Persistence\ManagerRegistry;
+use Doctrine\Persistence\ObjectManager;
 use Symfony\Cmf\Bundle\MediaBundle\BinaryInterface;
 use Symfony\Cmf\Bundle\MediaBundle\File\UploadFileHelperInterface;
 use Symfony\Cmf\Bundle\MediaBundle\FileInterface;
