@@ -35,6 +35,7 @@ services:
             - '@Symfony\Cmf\Bundle\MediaBundle\Doctrine\Phpcr\MediaManager'
 
     Symfony\Cmf\Bundle\MediaBundle\Controller\FileController:
+        public: true
         arguments:
             - '@doctrine_phpcr'
             - '%cmf_media.persistence.phpcr.manager_name%'
@@ -50,6 +51,7 @@ services:
         alias: Symfony\Cmf\Bundle\MediaBundle\Controller\FileController
 
     Symfony\Cmf\Bundle\MediaBundle\Controller\ImageController:
+        public: true
         arguments:
             - '@doctrine_phpcr'
             - '%cmf_media.persistence.phpcr.manager_name%'
