@@ -178,7 +178,7 @@ class CmfMediaExtension extends Extension implements PrependExtensionInterface
                 $loader->load('persistence-phpcr-event-imagine.yml');
             }
             $definition = $container->getDefinition($this->getAlias().'.templating.helper');
-            $definition->addArgument(new Reference('liip_imagine.templating.filter_helper'));
+            $definition->addArgument(new Reference('liip_imagine.templating.helper'));
             
         } elseif (true === $config['event_listeners']['imagine_cache']) {
             throw new InvalidConfigurationException('persistence.phpcr.event_listeners.imagine_cache may not be forced enabled if Imagine is not enabled.');
