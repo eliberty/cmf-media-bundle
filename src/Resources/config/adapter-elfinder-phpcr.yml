@@ -1,4 +1,7 @@
 services:
+    _defaults:
+        public: true
+
     Symfony\Cmf\Bundle\MediaBundle\Adapter\ElFinder\PhpcrDriver:
         arguments:
             - '@doctrine_phpcr'
