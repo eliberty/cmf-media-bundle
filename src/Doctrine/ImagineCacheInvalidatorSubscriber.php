@@ -75,7 +75,7 @@ class ImagineCacheInvalidatorSubscriber implements EventSubscriber
      */
     public function setRequest(RequestStack $request = null)
     {
-        if (null !== $request->getMasterRequest()) {
+        if (null !== $request->getMainRequest()) {
             $this->request = $request;
         }
     }

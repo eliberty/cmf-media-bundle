@@ -69,7 +69,7 @@ class ImageType extends FileType
     /**
      * {@inheritdoc}
      */
-    public function getBlockPrefix()
+    public function getBlockPrefix(): string
     {
         return 'cmf_media_image';
     }
@@ -86,7 +86,7 @@ class ImageType extends FileType
     /**
      * {@inheritdoc}
      */
-    public function configureOptions(OptionsResolver $options)
+    public function configureOptions(OptionsResolver $options): void
     {
         parent::configureOptions($options);
         $options->setDefaults(['imagine_filter' => $this->defaultFilter, 'use_timestamp' => false]);

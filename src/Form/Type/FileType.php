@@ -56,7 +56,7 @@ class FileType extends AbstractType
     /**
      * {@inheritdoc}
      */
-    public function getParent()
+    public function getParent(): ?string
     {
         return LegacyFormHelper::getType('Symfony\Component\Form\Extension\Core\Type\FileType');
     }
@@ -64,7 +64,7 @@ class FileType extends AbstractType
     /**
      * {@inheritdoc}
      */
-    public function getBlockPrefix()
+    public function getBlockPrefix(): string
     {
         return 'cmf_media_file';
     }
@@ -77,7 +77,7 @@ class FileType extends AbstractType
     /**
      * {@inheritdoc}
      */
-    public function buildForm(FormBuilderInterface $builder, array $options)
+    public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         if ($options['empty_data'] instanceof FileInterface) {
             $transformer = new ModelToFileChildAwareTransformer(
@@ -96,7 +96,7 @@ class FileType extends AbstractType
     /**
      * {@inheritdoc}
      */
-    public function configureOptions(OptionsResolver $options)
+    public function configureOptions(OptionsResolver $options): void
     {
         $options->setDefaults(['data_class' => $this->dataClass, 'child_of_node' => null]);
     }
