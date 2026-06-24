@@ -114,7 +114,7 @@ class PhpcrImageTestController extends Controller
         $form = $this->getUploadForm();
 
         $form->handleRequest($request);
-        if ($form->isValid()) {
+        if ($form->isSubmitted() && $form->isValid()) {
             /* @var UploadFileHelperInterface $uploadFileHelper */
             $uploadImageHelper = $this->get('cmf_media.upload_image_helper');
 
@@ -156,7 +156,7 @@ class PhpcrImageTestController extends Controller
         if ($request->isMethod('POST')) {
             $form->bind($request);
 
-            if ($form->isValid()) {
+            if ($form->isSubmitted() && $form->isValid()) {
                 // persist
                 $dm = $this->get('doctrine_phpcr')->getManager('default');
                 $dm->persist($contentObject);
@@ -185,7 +185,7 @@ class PhpcrImageTestController extends Controller
         if ($request->isMethod('POST')) {
             $form->bind($request);
 
-            if ($form->isValid()) {
+            if ($form->isSubmitted() && $form->isValid()) {
                 // persist
                 $dm = $this->get('doctrine_phpcr')->getManager('default');
                 $dm->persist($contentObject);

@@ -113,7 +113,7 @@ class PhpcrFileTestController extends Controller
         if ($request->isMethod('POST')) {
             $form->bind($request);
 
-            if ($form->isValid()) {
+            if ($form->isSubmitted() && $form->isValid()) {
                 // persist
                 $dm = $this->get('doctrine_phpcr')->getManager('default');
                 $dm->persist($contentObject);
@@ -130,7 +130,7 @@ class PhpcrFileTestController extends Controller
 
         $form->handleRequest($request);
 
-        if ($form->isValid()) {
+        if ($form->isSubmitted() && $form->isValid()) {
             /** @var UploadFileHelperInterface $uploadFileHelper */
             $uploadFileHelper = $this->get('cmf_media.upload_file_helper');
 
@@ -165,7 +165,7 @@ class PhpcrFileTestController extends Controller
         if ($request->isMethod('POST')) {
             $form->bind($request);
 
-            if ($form->isValid()) {
+            if ($form->isSubmitted() && $form->isValid()) {
                 // persist
                 $dm = $this->get('doctrine_phpcr')->getManager('default');
                 $dm->persist($contentObject);
