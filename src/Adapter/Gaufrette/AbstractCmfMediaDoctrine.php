@@ -532,7 +532,7 @@ abstract class AbstractCmfMediaDoctrine implements Adapter, ChecksumCalculator, 
      * @param FileInterface      $file
      * @param DirectoryInterface $parent Parent directory of the file
      */
-    protected function setFileDefaults($path, FileInterface $file, DirectoryInterface $parent = null)
+    protected function setFileDefaults($path, FileInterface $file, ?DirectoryInterface $parent = null)
     {
         $setIdentifier = $this->identifier ? 'set'.ucfirst($this->identifier) : false;
         $name          = $this->getBaseName($path);
