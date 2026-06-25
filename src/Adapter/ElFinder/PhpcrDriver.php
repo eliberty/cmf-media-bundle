@@ -27,7 +27,7 @@ use Symfony\Cmf\Bundle\MediaBundle\HierarchyInterface;
 use Symfony\Cmf\Bundle\MediaBundle\ImageInterface;
 use Symfony\Cmf\Bundle\MediaBundle\MediaManagerInterface;
 use Symfony\Cmf\Bundle\MediaBundle\Templating\Helper\CmfMediaHelper;
-use Symfony\Component\HttpFoundation\Session\SessionInterface;
+use Symfony\Component\HttpFoundation\RequestStack;
 
 /**
  * @author Sjoerd Peters <sjoerd.peters@gmail.com>
@@ -55,7 +55,6 @@ class PhpcrDriver extends elFinderVolumeDriver
     /**
      * Constructor.
      *
-     * @param SessionInterface      $session
      * @param ManagerRegistry       $registry
      * @param string                $managerName
      * @param MediaManagerInterface $mediaManager
@@ -68,13 +67,13 @@ class PhpcrDriver extends elFinderVolumeDriver
         MediaManagerInterface $mediaManager,
         CmfMediaHelper $mediaHelper,
         $imagineFilter = false,
-        SessionInterface $session
+        RequestStack $requestStack
     ) {
         $this->dm            = $registry->getManager($managerName);
         $this->mediaManager  = $mediaManager;
         $this->mediaHelper   = $mediaHelper;
         $this->imagineFilter = $imagineFilter;
-        $this->session       = new ElFinderSession($session);
+        $this->session       = new ElFinderSession($requestStack->getSession());
 
         $opts = [
             'workspace' => '',
