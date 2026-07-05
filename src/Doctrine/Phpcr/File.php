@@ -69,7 +69,7 @@ class File extends DoctrineOdmFile implements FileInterface, BinaryInterface
     /**
      * {@inheritdoc}
      */
-    public function setParentDocument($parent)
+    public function setParentDocument(object $parent): self
     {
         $this->parent = $parent;
 

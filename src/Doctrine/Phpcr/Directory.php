@@ -61,7 +61,7 @@ class Directory extends Folder implements DirectoryInterface
     /**
      * {@inheritdoc}
      */
-    public function setParentDocument($parent)
+    public function setParentDocument(object $parent): self
     {
         $this->parent = $parent;
 
