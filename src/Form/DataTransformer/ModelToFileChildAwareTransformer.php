@@ -33,7 +33,6 @@ class ModelToFileChildAwareTransformer extends ModelToFileTransformer
     private $class;
 
     /**
-     * @param UploadFileHelperInterface $helper
      * @param $class
      * @param $emptyData
      * @param $childOfNode

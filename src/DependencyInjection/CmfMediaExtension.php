@@ -35,7 +35,7 @@ class CmfMediaExtension extends Extension implements PrependExtensionInterface
     /**
      * {@inheritdoc}
      */
-    public function prepend(ContainerBuilder $container)
+    public function prepend(ContainerBuilder $container): void
     {
         // get all Bundles
         $bundles = $container->getParameter('kernel.bundles');
@@ -65,7 +65,7 @@ class CmfMediaExtension extends Extension implements PrependExtensionInterface
     /**
      * {@inheritdoc}
      */
-    public function load(array $configs, ContainerBuilder $container)
+    public function load(array $configs, ContainerBuilder $container): void
     {
         $configuration = new Configuration();
         $config        = $this->processConfiguration($configuration, $configs);
@@ -91,7 +91,7 @@ class CmfMediaExtension extends Extension implements PrependExtensionInterface
         ;
 
         // load config
-        $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
+        $loader = new YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $loader->load('services.yml');
 
         if ($config['persistence']['phpcr']['enabled']) {
@@ -122,7 +122,7 @@ class CmfMediaExtension extends Extension implements PrependExtensionInterface
         $useImagine,
         $useJmsSerializer,
         $useElFinder
-    ) {
+    ): void {
         $container->setParameter($this->getAlias().'.backend_type_phpcr', true);
         $prefix = $this->getAlias().'.persistence.phpcr';
 
@@ -195,7 +195,7 @@ class CmfMediaExtension extends Extension implements PrependExtensionInterface
         }
     }
 
-    public function loadLiipImagine($enabled, $config, YamlFileLoader $loader, ContainerBuilder $container, $useElFinder)
+    public function loadLiipImagine($enabled, $config, YamlFileLoader $loader, ContainerBuilder $container, $useElFinder): void
     {
         if (!$enabled) {
             $container->setParameter($this->getAlias().'.use_imagine', false);

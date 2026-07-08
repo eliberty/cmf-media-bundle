@@ -32,7 +32,7 @@ class MediaManagerTest extends \PHPUnit_Framework_TestCase
      */
     private $testRoot;
 
-    public function setUp()
+    public function setUp(): void
     {
         $this->registryMock = $this->createMock(ManagerRegistry::class);
         $this->dmMock = $this->createMock(DocumentManager::class);
@@ -40,12 +40,12 @@ class MediaManagerTest extends \PHPUnit_Framework_TestCase
         $this->testRoot->setId('/test/media');
     }
 
-    private function getMediaManager()
+    private function getMediaManager(): MediaManager
     {
         return new MediaManager($this->registryMock, 'themanager', '/test/media');
     }
 
-    public function testGetPath()
+    public function testGetPath(): void
     {
         $media = new Media();
         $media->setId('/test/media/mymedia');
@@ -54,7 +54,7 @@ class MediaManagerTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals('/test/media/mymedia', $mediaManager->getPath($media));
     }
 
-    public function testGetUrlSafePath()
+    public function testGetUrlSafePath(): void
     {
         $media = new Media();
         $media->setId('/test/media/mymedia');
@@ -75,7 +75,7 @@ class MediaManagerTest extends \PHPUnit_Framework_TestCase
     /**
      * @dataProvider setDefaultsProvider
      */
-    public function testSetDefaults($expectedName = null, $name = null, $nameExists = false, $id = null)
+    public function testSetDefaults($expectedName = null, $name = null, $nameExists = false, $id = null): void
     {
         $returnMediaExists = $nameExists ? new Media() : null;
         $rootPath = '/test/media/file';
@@ -114,7 +114,7 @@ class MediaManagerTest extends \PHPUnit_Framework_TestCase
     /**
      * @expectedException \RuntimeException
      */
-    public function testSetDefaultsException()
+    public function testSetDefaultsException(): void
     {
         $media = new Media();
 
@@ -133,7 +133,7 @@ class MediaManagerTest extends \PHPUnit_Framework_TestCase
     /**
      * @dataProvider mapPathToIdProvider
      */
-    public function testMapPathToId($path, $rootPath)
+    public function testMapPathToId($path, $rootPath): void
     {
         $mediaManager = $this->getMediaManager();
 
@@ -143,7 +143,7 @@ class MediaManagerTest extends \PHPUnit_Framework_TestCase
     /**
      * @expectedException \OutOfBoundsException
      */
-    public function testMapPathToIdException()
+    public function testMapPathToIdException(): void
     {
         $mediaManager = $this->getMediaManager();
 
@@ -161,7 +161,7 @@ class MediaManagerTest extends \PHPUnit_Framework_TestCase
     /**
      * @dataProvider mapUrlSafePathToIdProvider
      */
-    public function testMapUrlSafePathToId($path, $rootPath)
+    public function testMapUrlSafePathToId($path, $rootPath): void
     {
         $mediaManager = $this->getMediaManager();
 
@@ -171,7 +171,7 @@ class MediaManagerTest extends \PHPUnit_Framework_TestCase
     /**
      * @expectedException \OutOfBoundsException
      */
-    public function testMapUrlSafePathToIdException()
+    public function testMapUrlSafePathToIdException(): void
     {
         $mediaManager = $this->getMediaManager();
 

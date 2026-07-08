@@ -64,7 +64,7 @@ abstract class AbstractMedia implements MediaInterface, MetadataInterface
     /**
      * @param string $id
      */
-    public function setId($id)
+    public function setId($id): void
     {
         $this->id = $id;
     }
@@ -80,7 +80,7 @@ abstract class AbstractMedia implements MediaInterface, MetadataInterface
     /**
      * {@inheritdoc}
      */
-    public function setName($name)
+    public function setName($name): void
     {
         $this->name = $name;
     }
@@ -96,7 +96,7 @@ abstract class AbstractMedia implements MediaInterface, MetadataInterface
     /**
      * {@inheritdoc}
      */
-    public function setDescription($description)
+    public function setDescription($description): void
     {
         $this->description = $description;
     }
@@ -112,7 +112,7 @@ abstract class AbstractMedia implements MediaInterface, MetadataInterface
     /**
      * {@inheritdoc}
      */
-    public function setCopyright($copyright)
+    public function setCopyright($copyright): void
     {
         $this->copyright = $copyright;
     }
@@ -128,7 +128,7 @@ abstract class AbstractMedia implements MediaInterface, MetadataInterface
     /**
      * {@inheritdoc}
      */
-    public function setAuthorName($authorName)
+    public function setAuthorName($authorName): void
     {
         $this->authorName = $authorName;
     }
@@ -144,7 +144,7 @@ abstract class AbstractMedia implements MediaInterface, MetadataInterface
     /**
      * {@inheritdoc}
      */
-    public function setMetadata(array $metadata)
+    public function setMetadata(array $metadata): void
     {
         $this->metadata = $metadata;
     }
@@ -168,7 +168,7 @@ abstract class AbstractMedia implements MediaInterface, MetadataInterface
     /**
      * {@inheritdoc}
      */
-    public function setMetadataValue($name, $value)
+    public function setMetadataValue($name, $value): void
     {
         $this->metadata[$name] = $value;
     }
@@ -176,7 +176,7 @@ abstract class AbstractMedia implements MediaInterface, MetadataInterface
     /**
      * {@inheritdoc}
      */
-    public function unsetMetadataValue($name)
+    public function unsetMetadataValue($name): void
     {
         unset($this->metadata[$name]);
     }

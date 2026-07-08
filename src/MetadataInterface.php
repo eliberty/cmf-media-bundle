@@ -66,7 +66,6 @@ interface MetadataInterface extends MediaInterface
     /**
      * Set all metadata.
      *
-     * @param array $metadata
      *
      * @return mixed
      */

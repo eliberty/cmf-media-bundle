@@ -1,5 +1,7 @@
 <?php
 
+use Symfony\Component\HttpKernel\Kernel;
+
 /*
  * This file is part of the Symfony CMF package.
  *
@@ -12,7 +14,7 @@
 $container->setParameter('cmf_testing.bundle_fqn', 'Symfony\Cmf\Bundle\MediaBundle');
 $loader->import(CMF_TEST_CONFIG_DIR.'/default.php');
 $loader->import(CMF_TEST_CONFIG_DIR.'/phpcr_odm.php');
-if (version_compare(strtolower(\Symfony\Component\HttpKernel\Kernel::VERSION), '3.0', '<')) {
+if (version_compare(strtolower(Kernel::VERSION), '3.0', '<')) {
     $loader->import(__DIR__.'/cmf_media_2.yml');
 } else {
     $loader->import(__DIR__.'/cmf_media_3.yml');

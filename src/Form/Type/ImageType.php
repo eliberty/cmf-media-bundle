@@ -47,7 +47,6 @@ class ImageType extends FileType
 
     /**
      * @param string                    $class
-     * @param UploadFileHelperInterface $uploadFileHelper
      * @param bool                      $useImagine
      * @param bool                      $defaultFilter
      */
@@ -77,7 +76,7 @@ class ImageType extends FileType
     /**
      * {@inheritdoc}
      */
-    public function buildView(FormView $view, FormInterface $form, array $options)
+    public function buildView(FormView $view, FormInterface $form, array $options): void
     {
         $view->vars['imagine_filter'] = $this->useImagine ? $options['imagine_filter'] : false;
         $view->vars['use_timestamp']  = $options['use_timestamp'];

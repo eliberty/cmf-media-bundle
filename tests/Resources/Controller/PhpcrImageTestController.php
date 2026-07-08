@@ -31,7 +31,7 @@ class PhpcrImageTestController extends Controller
         ;
     }
 
-    protected function getContentForm(Content $contentObject = null, array $imageOptions = array())
+    protected function getContentForm(?Content $contentObject = null, array $imageOptions = array())
     {
         if (is_null($contentObject)) {
             $contentObject = new Content();

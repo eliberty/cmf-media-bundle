@@ -33,11 +33,9 @@ class UploadFileHelperDoctrine implements UploadFileHelperInterface
     protected $allowNonUploadedFiles = false;
 
     /**
-     * @param ManagerRegistry       $registry
      * @param string                $managerName
      * @param string                $class        fully qualified class name of file
      * @param string                $rootPath     path where the filesystem is located
-     * @param MediaManagerInterface $mediaManager
      */
     public function __construct(
         ManagerRegistry $registry,
@@ -56,7 +54,7 @@ class UploadFileHelperDoctrine implements UploadFileHelperInterface
     /**
      * {@inheritdoc}
      */
-    public function setAllowNonUploadedFiles($boolean)
+    public function setAllowNonUploadedFiles($boolean): void
     {
         $this->allowNonUploadedFiles = $boolean;
     }
@@ -67,7 +65,7 @@ class UploadFileHelperDoctrine implements UploadFileHelperInterface
      *
      * @param string $managerName
      */
-    public function setManagerName($managerName)
+    public function setManagerName($managerName): void
     {
         $this->managerName = $managerName;
     }
@@ -78,7 +76,7 @@ class UploadFileHelperDoctrine implements UploadFileHelperInterface
      *
      * @param string $class fully qualified class name of file
      */
-    public function setClass($class)
+    public function setClass($class): void
     {
         if (empty($class)) {
             $this->class = null;
@@ -98,7 +96,7 @@ class UploadFileHelperDoctrine implements UploadFileHelperInterface
      *
      * @param string $rootPath
      */
-    public function setRootPath($rootPath)
+    public function setRootPath($rootPath): void
     {
         $this->rootPath = $rootPath;
     }
@@ -117,7 +115,7 @@ class UploadFileHelperDoctrine implements UploadFileHelperInterface
     /**
      * {@inheritdoc}
      */
-    public function addEditorHelper($name, UploadEditorHelperInterface $helper)
+    public function addEditorHelper($name, UploadEditorHelperInterface $helper): void
     {
         $this->editorHelpers[$name] = $helper;
     }
@@ -137,13 +135,11 @@ class UploadFileHelperDoctrine implements UploadFileHelperInterface
     /**
      * Validate the uploaded file.
      *
-     * @param UploadedFile $file
      *
      * @return bool true either returns true or throws an exception
-     *
      * @throws UploadException if the upload failed for some reason
      */
-    protected function validateFile(UploadedFile $file)
+    protected function validateFile(UploadedFile $file): bool
     {
         if ($file->isValid()) {
             return true;
@@ -161,7 +157,7 @@ class UploadFileHelperDoctrine implements UploadFileHelperInterface
      *
      * @return string The error message regarding the specified error code
      */
-    private function getErrorMessage(UploadedFile $file)
+    private function getErrorMessage(UploadedFile $file): string
     {
         $errorCode     = $file->getError();
         static $errors = [

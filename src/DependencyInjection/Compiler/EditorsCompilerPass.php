@@ -17,7 +17,7 @@ use Symfony\Component\DependencyInjection\Reference;
 
 class EditorsCompilerPass implements CompilerPassInterface
 {
-    public function process(ContainerBuilder $container)
+    public function process(ContainerBuilder $container): void
     {
         $tags = $container->findTaggedServiceIds('cmf_media.upload_editor_helper');
 

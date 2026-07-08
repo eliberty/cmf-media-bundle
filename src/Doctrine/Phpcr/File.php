@@ -335,7 +335,7 @@ class File extends DoctrineOdmFile implements FileInterface, BinaryInterface
      *
      * @return string name of the (jcr) user who updated the file
      */
-    public function getUpdatedBy()
+    public function getUpdatedBy(): ?string
     {
         return $this->getContent()->getLastModifiedBy();
     }

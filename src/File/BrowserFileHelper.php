@@ -28,9 +28,8 @@ class BrowserFileHelper
      *
      * @param string $name
      * @param $editor
-     * @param BrowserEditorHelperInterface $helper
      */
-    public function addEditorHelper($name, $editor, BrowserEditorHelperInterface $helper)
+    public function addEditorHelper($name, $editor, BrowserEditorHelperInterface $helper): void
     {
         $this->editorHelpers[$name][$editor] = $helper;
     }

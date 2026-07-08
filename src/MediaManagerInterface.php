@@ -25,7 +25,6 @@ interface MediaManagerInterface
      * It is similar to a filesystem path only always uses "/" to separate
      * parents, and therefore allows to get the parent from the path.
      *
-     * @param MediaInterface $media
      *
      * @return string
      */
@@ -34,7 +33,6 @@ interface MediaManagerInterface
     /**
      * Get an url safe path.
      *
-     * @param MediaInterface $media
      *
      * @return string
      */
@@ -45,9 +43,7 @@ interface MediaManagerInterface
      * this is used fe. by Doctrine Phpcr to ensure a unique id and add the
      * parent object.
      *
-     * @param MediaInterface $media
      * @param string         $parentPath optionally add the parent path
-     *
      * @throws \RuntimeException if the defaults could not be set
      */
     public function setDefaults(MediaInterface $media, $parentPath = null);

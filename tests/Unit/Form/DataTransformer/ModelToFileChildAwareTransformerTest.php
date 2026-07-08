@@ -27,12 +27,12 @@ class ModelToFileChildAwareTransformerTest extends \PHPUnit_Framework_TestCase
      */
     private $uploadFileHelper;
 
-    public function setUp()
+    public function setUp(): void
     {
         $this->uploadFileHelper = $this->getMock(UploadFileHelperInterface::class);
     }
 
-    public function testTransformPassFileOnly()
+    public function testTransformPassFileOnly(): void
     {
         $transformer = new ModelToFileTransformer($this->uploadFileHelper, []);
         $file = new \stdClass();
@@ -42,7 +42,7 @@ class ModelToFileChildAwareTransformerTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($file, $result);
     }
 
-    public function testReverseTransformPassNonUploadFiles()
+    public function testReverseTransformPassNonUploadFiles(): void
     {
         $transformer = new ModelToFileTransformer($this->uploadFileHelper, []);
         $file = new \stdClass();
@@ -52,7 +52,7 @@ class ModelToFileChildAwareTransformerTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($file, $result);
     }
 
-    public function testReverseTransformReturnHandlesFile()
+    public function testReverseTransformReturnHandlesFile(): void
     {
         $file = new File();
         $uploadFile = $this->getMockBuilder(UploadedFile::class)->disableOriginalConstructor()->getMock();
@@ -67,7 +67,7 @@ class ModelToFileChildAwareTransformerTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($file, $result);
     }
 
-    public function testRespectOfEmptyDataFile()
+    public function testRespectOfEmptyDataFile(): void
     {
         $uploadFile = $this->getMockBuilder(UploadedFile::class)->disableOriginalConstructor()->getMock();
         $createdFile = $this->getMockBuilder(File::class)->disableOriginalConstructor()->getMock();

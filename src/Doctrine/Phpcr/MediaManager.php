@@ -30,7 +30,6 @@ class MediaManager implements MediaManagerInterface
     protected $rootPath;
 
     /**
-     * @param ManagerRegistry $registry
      * @param string          $managerName
      * @param string          $rootPath    path where the filesystem is located
      */
@@ -47,7 +46,7 @@ class MediaManager implements MediaManagerInterface
      *
      * @param string $managerName
      */
-    public function setManagerName($managerName)
+    public function setManagerName($managerName): void
     {
         $this->managerName = $managerName;
     }
@@ -58,7 +57,7 @@ class MediaManager implements MediaManagerInterface
      *
      * @param string $rootPath
      */
-    public function setRootPath($rootPath)
+    public function setRootPath($rootPath): void
     {
         $this->rootPath = $rootPath;
     }
@@ -93,7 +92,7 @@ class MediaManager implements MediaManagerInterface
     /**
      * {@inheritdoc}
      */
-    public function setDefaults(MediaInterface $media, $parentPath = null)
+    public function setDefaults(MediaInterface $media, $parentPath = null): void
     {
         $class = ClassUtils::getClass($media);
 

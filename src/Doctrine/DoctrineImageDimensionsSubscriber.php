@@ -53,26 +53,17 @@ class DoctrineImageDimensionsSubscriber implements EventSubscriber
         ];
     }
 
-    /**
-     * @param LifecycleEventArgs $args
-     */
-    public function prePersist(LifecycleEventArgs $args)
+    public function prePersist(LifecycleEventArgs $args): void
     {
         $this->updateDimensionsFromContent($args);
     }
 
-    /**
-     * @param LifecycleEventArgs $args
-     */
-    public function preUpdate(LifecycleEventArgs $args)
+    public function preUpdate(LifecycleEventArgs $args): void
     {
         $this->updateDimensionsFromContent($args);
     }
 
-    /**
-     * @param LifecycleEventArgs $args
-     */
-    public function updateDimensionsFromContent(LifecycleEventArgs $args)
+    public function updateDimensionsFromContent(LifecycleEventArgs $args): void
     {
         $object = $args->getObject();
 

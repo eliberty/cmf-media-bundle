@@ -8,13 +8,15 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-
+use Symfony\Cmf\Bundle\MediaBundle\CmfMediaBundle;
+use Liip\ImagineBundle\LiipImagineBundle;
+use JMS\SerializerBundle\JMSSerializerBundle;
 use Symfony\Cmf\Component\Testing\HttpKernel\TestKernel;
 use Symfony\Component\Config\Loader\LoaderInterface;
 
 class AppKernel extends TestKernel
 {
-    public function configure()
+    public function configure(): void
     {
         $this->requireBundleSets(array(
             'default',
@@ -22,13 +24,13 @@ class AppKernel extends TestKernel
         ));
 
         $this->addBundles(array(
-            new \Symfony\Cmf\Bundle\MediaBundle\CmfMediaBundle(),
-            new \Liip\ImagineBundle\LiipImagineBundle(),
-            new \JMS\SerializerBundle\JMSSerializerBundle($this),
+            new CmfMediaBundle(),
+            new LiipImagineBundle(),
+            new JMSSerializerBundle($this),
         ));
     }
 
-    public function registerContainerConfiguration(LoaderInterface $loader)
+    public function registerContainerConfiguration(LoaderInterface $loader): void
     {
         $loader->load(__DIR__.'/config/config.php');
     }

@@ -15,7 +15,7 @@ use Symfony\Cmf\Bundle\MediaBundle\Doctrine\Phpcr\Directory;
 
 class DirectoryTest extends \PHPUnit_Framework_TestCase
 {
-    public function testAddChild()
+    public function testAddChild(): void
     {
         $dir = new Directory();
         $dir->setName('home');
@@ -31,7 +31,7 @@ class DirectoryTest extends \PHPUnit_Framework_TestCase
         $this->assertCount(0, $subDir->getChildren());
     }
 
-    public function testSetParent()
+    public function testSetParent(): void
     {
         $dir = new Directory();
         $dir->setName('home');
@@ -59,7 +59,7 @@ class DirectoryTest extends \PHPUnit_Framework_TestCase
     /**
      * @dataProvider addChildProvider
      */
-    public function testChild($class)
+    public function testChild($class): void
     {
         $dir = new Directory();
         $dir->setName('home');

@@ -55,10 +55,7 @@ class PhpcrDriver extends elFinderVolumeDriver
     /**
      * Constructor.
      *
-     * @param ManagerRegistry       $registry
      * @param string                $managerName
-     * @param MediaManagerInterface $mediaManager
-     * @param CmfMediaHelper        $mediaHelper
      * @param bool|FilterInterface  $imagineFilter
      */
     public function __construct(

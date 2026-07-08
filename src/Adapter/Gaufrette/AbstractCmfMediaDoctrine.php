@@ -11,6 +11,9 @@
 
 namespace Symfony\Cmf\Bundle\MediaBundle\Adapter\Gaufrette;
 
+use Gaufrette\Util\Path;
+use Gaufrette\Util\Checksum;
+use Doctrine\Persistence\ObjectManager;
 use Doctrine\Persistence\ManagerRegistry;
 use Gaufrette\Adapter;
 use Gaufrette\Adapter\ChecksumCalculator;
@@ -53,10 +56,8 @@ abstract class AbstractCmfMediaDoctrine implements Adapter, ChecksumCalculator, 
     /**
      * Constructor.
      *
-     * @param ManagerRegistry       $registry
      * @param string                $managerName
      * @param string                $class        fully qualified class name of file
-     * @param MediaManagerInterface $mediaManager
      * @param string                $rootPath     path where the filesystem is located
      * @param bool                  $create       whether to create the directory if
      *                                            it does not exist (default FALSE)
@@ -83,7 +84,7 @@ abstract class AbstractCmfMediaDoctrine implements Adapter, ChecksumCalculator, 
         $this->managerName     = $managerName;
         $this->class           = $class;
         $this->mediaManager    = $mediaManager;
-        $this->rootPath        = Util\Path::normalize($rootPath);
+        $this->rootPath        = Path::normalize($rootPath);
         $this->create          = $create;
         $this->dirClass        = $dirClass;
         $this->identifier      = $identifier;
@@ -254,7 +255,7 @@ abstract class AbstractCmfMediaDoctrine implements Adapter, ChecksumCalculator, 
     {
         $file = $this->find($key);
 
-        return Util\Checksum::fromContent(($file ? $file->getContentAsString() : ''));
+        return Checksum::fromContent(($file ? $file->getContentAsString() : ''));
     }
 
     /**
@@ -287,7 +288,7 @@ abstract class AbstractCmfMediaDoctrine implements Adapter, ChecksumCalculator, 
      * @throws \RuntimeException If file cannot be found or cannot be written
      *                           to
      */
-    public function setMetadata($key, $metadata)
+    public function setMetadata($key, $metadata): void
     {
         $file = $this->find($key);
 
@@ -319,7 +320,7 @@ abstract class AbstractCmfMediaDoctrine implements Adapter, ChecksumCalculator, 
      *
      * @param string $managerName
      */
-    public function setManagerName($managerName)
+    public function setManagerName($managerName): void
     {
         $this->managerName = $managerName;
     }
@@ -328,7 +329,7 @@ abstract class AbstractCmfMediaDoctrine implements Adapter, ChecksumCalculator, 
      * Get the object manager from the registry, based on the current
      * managerName.
      *
-     * @return \Doctrine\Persistence\ObjectManager
+     * @return ObjectManager
      */
     public function getObjectManager()
     {
@@ -341,7 +342,7 @@ abstract class AbstractCmfMediaDoctrine implements Adapter, ChecksumCalculator, 
      *
      * @param $bool boolean
      */
-    public function setAutoFlush($bool)
+    public function setAutoFlush($bool): void
     {
         $this->autoFlush = $bool;
     }
@@ -428,7 +429,6 @@ abstract class AbstractCmfMediaDoctrine implements Adapter, ChecksumCalculator, 
      * Gaufrette uses a key to identify a file or directory. This adapter uses
      * a filesystem path, like /path/to/file/filename.ext, as key.
      *
-     * @param MediaInterface $file
      *
      * @return string
      */
@@ -498,7 +498,7 @@ abstract class AbstractCmfMediaDoctrine implements Adapter, ChecksumCalculator, 
      */
     protected function normalizePath($path)
     {
-        $path = Util\Path::normalize($path);
+        $path = Path::normalize($path);
 
         if (0 !== strpos($path, $this->rootPath)) {
             throw new \OutOfBoundsException(sprintf('The path "%s" is out of the filesystem.', $path));
@@ -529,7 +529,6 @@ abstract class AbstractCmfMediaDoctrine implements Adapter, ChecksumCalculator, 
      * Set default values for a new file or directory.
      *
      * @param string             $path   Path of the file
-     * @param FileInterface      $file
      * @param DirectoryInterface $parent Parent directory of the file
      */
     protected function setFileDefaults($path, FileInterface $file, ?DirectoryInterface $parent = null)

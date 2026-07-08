@@ -18,10 +18,7 @@ use Symfony\Component\HttpKernel\Bundle\Bundle;
 
 class CmfMediaBundle extends Bundle
 {
-    /**
-     * @param ContainerBuilder $container
-     */
-    public function build(ContainerBuilder $container)
+    public function build(ContainerBuilder $container): void
     {
         parent::build($container);
 

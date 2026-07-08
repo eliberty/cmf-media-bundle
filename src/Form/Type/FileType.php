@@ -45,7 +45,6 @@ class FileType extends AbstractType
 
     /**
      * @param string                    $class
-     * @param UploadFileHelperInterface $uploadFileHelper
      */
     public function __construct($class, UploadFileHelperInterface $uploadFileHelper)
     {
@@ -69,7 +68,7 @@ class FileType extends AbstractType
         return 'cmf_media_file';
     }
 
-    public function getName()
+    public function getName(): string
     {
         return $this->getBlockPrefix();
     }

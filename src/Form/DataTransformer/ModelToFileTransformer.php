@@ -30,7 +30,6 @@ class ModelToFileTransformer implements DataTransformerInterface
     private $class;
 
     /**
-     * @param UploadFileHelperInterface $helper
      * @param string                    $class
      */
     public function __construct(UploadFileHelperInterface $helper, $class = null)

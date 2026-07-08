@@ -32,10 +32,7 @@ class CmfMediaDoctrineLoader extends AbstractDoctrineLoader
     /**
      * Constructor.
      *
-     * @param ImagineInterface      $imagine
-     * @param ManagerRegistry       $registry
      * @param string                $managerName
-     * @param MediaManagerInterface $mediaManager
      * @param string                $class        fully qualified class name of image
      */
     public function __construct(

@@ -46,7 +46,7 @@ class UploadFileHelperTest extends \PHPUnit_Framework_TestCase
      */
     private $rootPath;
 
-    public function setUp()
+    public function setUp(): void
     {
         $this->registryMock = $this->createMock(ManagerRegistry::class);
         $this->dmMock = $this->createMock(DocumentManager::class);
@@ -55,12 +55,12 @@ class UploadFileHelperTest extends \PHPUnit_Framework_TestCase
         $this->rootPath = '/test/media';
     }
 
-    private function getUploadFileHelper()
+    private function getUploadFileHelper(): UploadFileHelperDoctrine
     {
         return new UploadFileHelperDoctrine($this->registryMock, 'themanager', $this->class, $this->rootPath, $this->mediaManagerMock);
     }
 
-    public function testAddGetEditorHelper()
+    public function testAddGetEditorHelper(): void
     {
         $uploadFileHelper = $this->getUploadFileHelper();
 
@@ -103,7 +103,7 @@ class UploadFileHelperTest extends \PHPUnit_Framework_TestCase
     /**
      * @dataProvider provideHandleUploadedFile
      */
-    public function testHandleUploadedFile($options)
+    public function testHandleUploadedFile($options): void
     {
         // UploadedFile only has a test mode since 2.3
         if (version_compare(Kernel::VERSION, '2.3') < 0) {
@@ -149,7 +149,7 @@ class UploadFileHelperTest extends \PHPUnit_Framework_TestCase
     /**
      * @expectedException \Symfony\Component\HttpKernel\Exception\HttpException
      */
-    public function testHandleUploadedFileException()
+    public function testHandleUploadedFileException(): void
     {
         vfsStream::setup('home');
         $testFile = vfsStream::url('home/test.txt');
@@ -166,7 +166,7 @@ class UploadFileHelperTest extends \PHPUnit_Framework_TestCase
         $uploadFileHelper->handleUploadedFile($uploadedFile);
     }
 
-    public function testGetUploadedResponse()
+    public function testGetUploadedResponse(): void
     {
         vfsStream::setup('home');
         $testFile = vfsStream::url('home/test.txt');
@@ -229,7 +229,7 @@ class UploadFileHelperTest extends \PHPUnit_Framework_TestCase
     /**
      * @expectedException \Symfony\Component\HttpKernel\Exception\HttpException
      */
-    public function testGetUploadResponseException()
+    public function testGetUploadResponseException(): void
     {
         $uploadFileHelper = $this->getUploadFileHelper();
 

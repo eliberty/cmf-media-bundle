@@ -15,7 +15,7 @@ use Symfony\Cmf\Component\Testing\Functional\BaseTestCase;
 
 class ImageRepositoryTest extends BaseTestCase
 {
-    public function setUp()
+    public function setUp(): void
     {
         $this->db('PHPCR')->loadFixtures(array(
             'Symfony\Cmf\Bundle\MediaBundle\Tests\Resources\DataFixtures\Phpcr\LoadMediaData',
@@ -41,7 +41,7 @@ class ImageRepositoryTest extends BaseTestCase
      *
      * @dataProvider imageSearchProvider
      */
-    public function testSearch($rootPath, $resultsCount, $term, $name)
+    public function testSearch($rootPath, $resultsCount, $term, $name): void
     {
         $imageClass = 'Symfony\Cmf\Bundle\MediaBundle\Doctrine\Phpcr\Image';
         $dm = $this->getContainer()->get('doctrine_phpcr.odm.default_document_manager');

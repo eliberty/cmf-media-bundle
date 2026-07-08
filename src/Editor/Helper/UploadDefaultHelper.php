@@ -32,8 +32,6 @@ class UploadDefaultHelper implements UploadEditorHelperInterface
      * into which document properties. You could map for example "caption" to
      * the "description" field with `array('caption' => 'description')`.
      *
-     * @param MediaManagerInterface $mediaManager
-     * @param RouterInterface       $router
      * @param array                 $propertyMapping maps request parameters to
      *                                               Media document properties
      */
@@ -47,7 +45,7 @@ class UploadDefaultHelper implements UploadEditorHelperInterface
     /**
      * {@inheritdoc}
      */
-    public function setFileDefaults(Request $request, FileInterface $file)
+    public function setFileDefaults(Request $request, FileInterface $file): void
     {
         // map request parameters to Media properties
         foreach ($this->propertyMapping as $param => $property) {

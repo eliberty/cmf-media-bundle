@@ -21,7 +21,7 @@ class ImageTest extends BaseTestCase
 {
     protected $dm;
 
-    public function setUp()
+    public function setUp(): void
     {
         $this->db('PHPCR')->loadFixtures(array(
             'Symfony\Cmf\Bundle\MediaBundle\Tests\Resources\DataFixtures\Phpcr\LoadMediaData',
@@ -29,7 +29,7 @@ class ImageTest extends BaseTestCase
         $this->dm = $this->db('PHPCR')->getOm();
     }
 
-    public function testPersistence()
+    public function testPersistence(): void
     {
         $contentWithFile = $this->dm->find(null, '/test/content/content-with-file');
         $this->assertInstanceOf('Doctrine\ODM\PHPCR\Document\Resource', $contentWithFile->getFile()->getContent());

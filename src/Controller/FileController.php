@@ -52,14 +52,11 @@ class FileController
     protected $tokenStorage;
 
     /**
-     * @param ManagerRegistry               $registry
      * @param string                        $managerName
      * @param string                        $class                fully qualified class
      *                                                            name of file
      * @param string                        $rootPath             path where the
      *                                                            filesystem is located
-     * @param MediaManagerInterface         $mediaManager
-     * @param UploadFileHelperInterface     $uploadFileHelper
      * @param string                        $requiredUploadRole   the role name for the security check
      * @param AuthorizationCheckerInterface $authorizationChecker
      * @param TokenStorageInterface         $tokenStorage
@@ -95,7 +92,7 @@ class FileController
      *
      * @param string $managerName
      */
-    public function setManagerName($managerName)
+    public function setManagerName($managerName): void
     {
         $this->managerName = $managerName;
     }
@@ -106,7 +103,7 @@ class FileController
      *
      * @param string $class fully qualified class name of file
      */
-    public function setClass($class)
+    public function setClass($class): void
     {
         $this->class = $class;
     }
@@ -117,7 +114,7 @@ class FileController
      *
      * @param string $rootPath
      */
-    public function setRootPath($rootPath)
+    public function setRootPath($rootPath): void
     {
         $this->rootPath = $rootPath;
     }
@@ -137,10 +134,8 @@ class FileController
      * Action to download a file object that has a route.
      *
      * @param string $path
-     *
-     * @return BinaryFileResponse|Response
      */
-    public function downloadAction($path)
+    public function downloadAction($path): Response|BinaryFileResponse
     {
         try {
             $id = $this->mediaManager->mapUrlSafePathToId($path, $this->rootPath);
@@ -184,7 +179,6 @@ class FileController
     /**
      * Action to upload a file.
      *
-     * @param Request $request
      *
      * @return Response
      */
@@ -197,8 +191,6 @@ class FileController
 
     /**
      * Decide whether the user is allowed to upload a file.
-     *
-     * @param Request $request
      */
     protected function checkSecurityUpload(Request $request)
     {

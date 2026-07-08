@@ -36,7 +36,7 @@ class DoctrineFileStreamTest extends \PHPUnit_Framework_TestCase
     /**
      * @dataProvider resetStreamProvider
      */
-    public function testResetStream($content)
+    public function testResetStream($content): void
     {
         // create image
         vfsStream::setup('home');

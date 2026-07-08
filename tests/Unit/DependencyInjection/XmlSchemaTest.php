@@ -15,7 +15,7 @@ use Symfony\Cmf\Component\Testing\Unit\XmlSchemaTestCase;
 
 class XmlSchemaTest extends XmlSchemaTestCase
 {
-    public function testSchema()
+    public function testSchema(): void
     {
         $xmlFiles = array_map(function ($file) {
             return __DIR__.'/../../Resources/Fixtures/config/'.$file;

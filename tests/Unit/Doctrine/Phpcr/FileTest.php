@@ -29,7 +29,7 @@ class FileTest extends \PHPUnit_Framework_TestCase
     /**
      * @dataProvider getExtensionProvider
      */
-    public function testGetExtension($name, $expectedExtension)
+    public function testGetExtension($name, $expectedExtension): void
     {
         $file = new File();
         $file->setName($name);
@@ -37,7 +37,7 @@ class FileTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($expectedExtension, $file->getExtension());
     }
 
-    public function testSetFileContentFromFilesystem()
+    public function testSetFileContentFromFilesystem(): void
     {
         vfsStream::setup('home');
         $fileSystemFile = vfsStream::url('home/test.txt');
@@ -52,7 +52,7 @@ class FileTest extends \PHPUnit_Framework_TestCase
         $this->assertInstanceOf('DateTime', $file->getUpdatedAt());
     }
 
-    public function testGetContent()
+    public function testGetContent(): void
     {
         $file = new File();
 
@@ -77,7 +77,7 @@ class FileTest extends \PHPUnit_Framework_TestCase
     /**
      * @dataProvider contentAsStringProvider
      */
-    public function testContentAsString($content, $expectedContent)
+    public function testContentAsString($content, $expectedContent): void
     {
         $file = new File();
 
@@ -111,7 +111,7 @@ class FileTest extends \PHPUnit_Framework_TestCase
     /**
      * @dataProvider copyContentFromFileProvider
      */
-    public function testCopyContentFromFile($fileInput, $expectedContent, $expectedContentType, $expectedSize)
+    public function testCopyContentFromFile($fileInput, $expectedContent, $expectedContentType, $expectedSize): void
     {
         $file = new File();
 
@@ -131,14 +131,14 @@ class FileTest extends \PHPUnit_Framework_TestCase
     /**
      * @expectedException \InvalidArgumentException
      */
-    public function testCopyContentFromFileException()
+    public function testCopyContentFromFileException(): void
     {
         $file = new File();
 
         $file->copyContentFromFile('');
     }
 
-    public function testContentAsStream()
+    public function testContentAsStream(): void
     {
         $file = new File();
 
@@ -168,7 +168,7 @@ class FileTest extends \PHPUnit_Framework_TestCase
     /**
      * @dataProvider getSizeProvider
      */
-    public function testSize($content, $expectedSize)
+    public function testSize($content, $expectedSize): void
     {
         $file = new File();
         $file->setContentFromString($content);

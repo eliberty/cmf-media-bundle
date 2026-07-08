@@ -56,11 +56,9 @@ class ImagineCacheInvalidatorSubscriber implements EventSubscriber
     private $request;
 
     /**
-     * @param MediaManagerInterface $mediaManager
      * @param CacheManager          $manager      the imagine cache manager
      *                                            this as otherwise we have a scope problem
      * @param $filters
-     *
      * @internal param array $filter list of filter names to invalidate
      */
     public function __construct(MediaManagerInterface $mediaManager, CacheManager $manager, $filters)
@@ -73,7 +71,7 @@ class ImagineCacheInvalidatorSubscriber implements EventSubscriber
     /**
      * @param RequestStack $request
      */
-    public function setRequest(?RequestStack $request = null)
+    public function setRequest(?RequestStack $request = null): void
     {
         if (null !== $request->getMainRequest()) {
             $this->request = $request;
@@ -93,10 +91,8 @@ class ImagineCacheInvalidatorSubscriber implements EventSubscriber
 
     /**
      * Invalidate cache after a document was updated.
-     *
-     * @param LifecycleEventArgs $args
      */
-    public function postUpdate(LifecycleEventArgs $args)
+    public function postUpdate(LifecycleEventArgs $args): void
     {
         $this->invalidateCache($args);
     }
@@ -104,10 +100,8 @@ class ImagineCacheInvalidatorSubscriber implements EventSubscriber
     /**
      * Invalidate the cache when removing an image. Do this before the flush to
      * still have access to the parent of the document.
-     *
-     * @param LifecycleEventArgs $args
      */
-    public function preRemove(LifecycleEventArgs $args)
+    public function preRemove(LifecycleEventArgs $args): void
     {
         $this->invalidateCache($args);
     }
@@ -115,10 +109,8 @@ class ImagineCacheInvalidatorSubscriber implements EventSubscriber
     /**
      * Check if this could mean an image document was modified (check resource,
      * file and image).
-     *
-     * @param LifecycleEventArgs $args
      */
-    private function invalidateCache(LifecycleEventArgs $args)
+    private function invalidateCache(LifecycleEventArgs $args): void
     {
         $object = $args->getObject();
         // If we hear about the Resource which is nested in a File, we get the

@@ -30,7 +30,6 @@ interface UploadFileHelperInterface
      * Add an editor helper.
      *
      * @param string                      $name
-     * @param UploadEditorHelperInterface $helper
      */
     public function addEditorHelper($name, UploadEditorHelperInterface $helper);
 
@@ -50,11 +49,9 @@ interface UploadFileHelperInterface
      * possible. If $class is null, the implementation chooses a suitable
      * class, e.g. through configuration.
      *
-     * @param UploadedFile $uploadedFile
      * @param string       $class        optional class name for the file class to generate
      *
      * @return FileInterface
-     *
      * @internal param Request $request
      */
     public function handleUploadedFile(UploadedFile $uploadedFile, $class = null);
@@ -62,10 +59,8 @@ interface UploadFileHelperInterface
     /**
      * Process upload and get a response.
      *
-     * @param Request        $request
      * @param UploadedFile[] $uploadedFiles optionally get the uploaded file(s)
      *                                      from the Request yourself
-     *
      * @return Response
      */
     public function getUploadResponse(Request $request, array $uploadedFiles = []);

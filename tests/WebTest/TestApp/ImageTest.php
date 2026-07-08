@@ -18,7 +18,7 @@ class ImageTest extends BaseTestCase
 {
     private $testDataDir;
 
-    public function setUp()
+    public function setUp(): void
     {
         $this->db('PHPCR')->loadFixtures(array(
             'Symfony\Cmf\Bundle\MediaBundle\Tests\Resources\DataFixtures\Phpcr\LoadMediaData',
@@ -26,7 +26,7 @@ class ImageTest extends BaseTestCase
         $this->testDataDir = $this->getContainer()->get('kernel')->getRootDir().'/Resources/data';
     }
 
-    public function testPage()
+    public function testPage(): void
     {
         // Clear cache
         $cacheManager = $this->getContainer()->get('liip_imagine.cache.manager');
@@ -65,7 +65,7 @@ class ImageTest extends BaseTestCase
         $this->assertTrue($cacheManager->isStored('test/media/cmf-logo.png', 'image_upload_thumbnail'));
     }
 
-    public function testUpload()
+    public function testUpload(): void
     {
         $client = $this->getClient();
         $crawler = $client->request('get', $this->getContainer()->get('router')->generate('phpcr_image_test'));
@@ -83,7 +83,7 @@ class ImageTest extends BaseTestCase
         $this->assertEquals($cntImagesLinks + 2, $crawler->filter('.images li img')->count());
     }
 
-    public function testEditorUpload()
+    public function testEditorUpload(): void
     {
         $client = $this->createClient(array(), array(
             'PHP_AUTH_USER' => 'admin',

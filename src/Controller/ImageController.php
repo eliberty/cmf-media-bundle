@@ -24,10 +24,8 @@ class ImageController extends FileController
      * Action to display an image object that has a route.
      *
      * @param string $path
-     *
-     * @return Response
      */
-    public function displayAction($path)
+    public function displayAction($path): Response
     {
         try {
             $id = $this->mediaManager->mapUrlSafePathToId($path);

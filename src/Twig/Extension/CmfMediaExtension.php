@@ -19,9 +19,6 @@ class CmfMediaExtension extends AbstractExtension
 {
     protected $mediaHelper;
 
-    /**
-     * @param CmfMediaHelper $mediaHelper
-     */
     public function __construct(CmfMediaHelper $mediaHelper)
     {
         $this->mediaHelper = $mediaHelper;

@@ -18,7 +18,7 @@ use Symfony\Cmf\Bundle\MediaBundle\Doctrine\DoctrineImageDimensionsSubscriber;
 
 class DoctrineImageDimensionsTest extends \PHPUnit_Framework_TestCase
 {
-    private function getDoctrineEventSubscriber($useImagine = false)
+    private function getDoctrineEventSubscriber($useImagine = false): DoctrineImageDimensionsSubscriber
     {
         return new DoctrineImageDimensionsSubscriber($useImagine ? new Imagine() : null);
     }
@@ -41,7 +41,7 @@ class DoctrineImageDimensionsTest extends \PHPUnit_Framework_TestCase
     /**
      * @dataProvider updateDimensionsFromContentProvider
      */
-    public function testUpdateDimensionsFromContent($content)
+    public function testUpdateDimensionsFromContent($content): void
     {
         // create image
         vfsStream::setup('home');

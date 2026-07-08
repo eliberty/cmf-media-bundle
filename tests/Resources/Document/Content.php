@@ -58,7 +58,7 @@ class Content
      *
      * @param FileInterface|UploadedFile|null $file optional the file to update
      */
-    public function setFile($file = null)
+    public function setFile($file = null): void
     {
         if (!$file) {
             return;
@@ -96,7 +96,7 @@ class Content
         return $this->file;
     }
 
-    public function setId($id)
+    public function setId($id): void
     {
         $this->id = $id;
     }
@@ -106,7 +106,7 @@ class Content
         return $this->id;
     }
 
-    public function setParent($parent)
+    public function setParent($parent): void
     {
         $this->parent = $parent;
     }
@@ -116,7 +116,7 @@ class Content
         return $this->parent;
     }
 
-    public function setName($name)
+    public function setName($name): void
     {
         $this->name = $name;
     }
@@ -131,7 +131,7 @@ class Content
         return $this->title;
     }
 
-    public function setTitle($title)
+    public function setTitle($title): void
     {
         $this->title = $title;
     }

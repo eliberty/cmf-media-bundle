@@ -30,7 +30,7 @@ class PhpcrFileTestController extends Controller
         ;
     }
 
-    protected function getContentForm(Content $contentObject = null)
+    protected function getContentForm(?Content $contentObject = null)
     {
         $is_new = is_null($contentObject);
         if ($is_new) {

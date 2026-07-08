@@ -18,7 +18,7 @@ use Symfony\Component\Routing\RouterInterface;
 
 class CmfMediaHelperTest extends \PHPUnit_Framework_TestCase
 {
-    public function testDownloadUrl()
+    public function testDownloadUrl(): void
     {
         $router = $this->createMock(RouterInterface::class);
         $router->expects($this->once())

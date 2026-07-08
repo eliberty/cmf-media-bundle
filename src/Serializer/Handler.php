@@ -28,10 +28,6 @@ class Handler
     protected $mediaManager;
     protected $router;
 
-    /**
-     * @param MediaManagerInterface $mediaManager
-     * @param RouterInterface       $router
-     */
     public function __construct(MediaManagerInterface $mediaManager, RouterInterface $router)
     {
         $this->mediaManager = $mediaManager;
@@ -41,10 +37,7 @@ class Handler
     /**
      * Handles the serialization of an Image object.
      *
-     * @param JsonSerializationVisitor $visitor
-     * @param ImageInterface           $image
      *
-     * @return array
      */
     public function serializeImageToArray(JsonSerializationVisitor $visitor, ImageInterface $image): array
     {

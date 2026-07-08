@@ -17,7 +17,7 @@ class FileTest extends BaseTestCase
 {
     private $testDataDir;
 
-    public function setUp()
+    public function setUp(): void
     {
         $this->db('PHPCR')->loadFixtures(array(
             'Symfony\Cmf\Bundle\MediaBundle\Tests\Resources\DataFixtures\Phpcr\LoadMediaData',
@@ -25,7 +25,7 @@ class FileTest extends BaseTestCase
         $this->testDataDir = $this->getContainer()->get('kernel')->getRootDir().'/Resources/data';
     }
 
-    public function testPage()
+    public function testPage(): void
     {
         $client = $this->getClient();
         $crawler = $client->request('get', $this->getContainer()->get('router')->generate('phpcr_file_test'));
@@ -36,7 +36,7 @@ class FileTest extends BaseTestCase
         $this->assertGreaterThanOrEqual(4, $crawler->filter('.downloads li a')->count());
     }
 
-    public function testUpload()
+    public function testUpload(): void
     {
         $client = $this->getClient();
         $crawler = $client->request('get', $this->getContainer()->get('router')->generate('phpcr_file_test'));
@@ -54,7 +54,7 @@ class FileTest extends BaseTestCase
         $this->assertEquals($cntDownloadLinks + 1, $crawler->filter('.downloads li a')->count());
     }
 
-    public function testEditorUpload()
+    public function testEditorUpload(): void
     {
         $client = $this->createClient(array(), array(
             'PHP_AUTH_USER' => 'admin',
@@ -75,7 +75,7 @@ class FileTest extends BaseTestCase
         $this->assertEquals($cntDownloadLinks + 1, $crawler->filter('.downloads li a')->count());
     }
 
-    public function testDownload()
+    public function testDownload(): void
     {
         $client = $this->getClient();
         $crawler = $client->request('get', $this->getContainer()->get('router')->generate('phpcr_file_test'));

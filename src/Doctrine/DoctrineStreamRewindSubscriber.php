@@ -36,28 +36,20 @@ class DoctrineStreamRewindSubscriber implements EventSubscriber
         ];
     }
 
-    /**
-     * @param LifecycleEventArgs $args
-     */
-    public function prePersist(LifecycleEventArgs $args)
+    public function prePersist(LifecycleEventArgs $args): void
     {
         $this->rewindStream($args);
     }
 
-    /**
-     * @param LifecycleEventArgs $args
-     */
-    public function preUpdate(LifecycleEventArgs $args)
+    public function preUpdate(LifecycleEventArgs $args): void
     {
         $this->rewindStream($args);
     }
 
     /**
      * Rewind stream of a BinaryInterface.
-     *
-     * @param LifecycleEventArgs $args
      */
-    public function rewindStream(LifecycleEventArgs $args)
+    public function rewindStream(LifecycleEventArgs $args): void
     {
         $object = $args->getObject();
 
