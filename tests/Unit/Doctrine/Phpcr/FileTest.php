@@ -37,6 +37,15 @@ class FileTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($expectedExtension, $file->getExtension());
     }
 
+    public function testGetParentOnFreshFileReturnsNull(): void
+    {
+        $file = new File();
+
+        // phpcr-odm 2.x types AbstractFile::$parent without a default value: a
+        // freshly constructed document must report "no parent", not fatal.
+        $this->assertNull($file->getParent());
+    }
+
     public function testSetFileContentFromFilesystem(): void
     {
         vfsStream::setup('home');

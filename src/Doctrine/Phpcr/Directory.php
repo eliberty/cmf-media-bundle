@@ -55,7 +55,10 @@ class Directory extends Folder implements DirectoryInterface
      */
     public function getParent()
     {
-        return $this->parent;
+        // phpcr-odm 2.x types AbstractFile::$parent without a default value: on a
+        // freshly constructed document the property is uninitialized, not null, and
+        // a raw read is a fatal Error. `??` uses isset() semantics and stays safe.
+        return $this->parent ?? null;
     }
 
     /**
