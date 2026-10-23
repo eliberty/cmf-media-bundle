@@ -14,6 +14,7 @@ namespace Symfony\Cmf\Bundle\MediaBundle\Doctrine\Phpcr;
 use Doctrine\Persistence\ManagerRegistry;
 use Doctrine\Common\Util\ClassUtils;
 use Doctrine\ODM\PHPCR\DocumentManager;
+use PHPCR\RepositoryException;
 use PHPCR\Util\PathHelper;
 use Symfony\Cmf\Bundle\MediaBundle\MediaInterface;
 use Symfony\Cmf\Bundle\MediaBundle\MediaManagerInterface;
@@ -130,7 +131,11 @@ class MediaManager implements MediaManagerInterface
     public function mapPathToId($path, $rootPath = null)
     {
         // The path is being the id
-        $id = PathHelper::absolutizePath($path, '/');
+        try {
+            $id = PathHelper::absolutizePath($path, '/');
+        } catch (RepositoryException $e) {
+            throw new \OutOfBoundsException($e->getMessage(), previous: $e);
+        }
 
         if (\is_string($rootPath) && 0 !== strpos($id, $rootPath)) {
             throw new \OutOfBoundsException(sprintf('The path "%s" is out of the root path "%s" were the file system is located.', $path, $rootPath));

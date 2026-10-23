@@ -150,6 +150,16 @@ class MediaManagerTest extends \PHPUnit_Framework_TestCase
         $mediaManager->mapPathToId('/test/media/mymedia', '/out/of/bound');
     }
 
+    /**
+     * @expectedException \OutOfBoundsException
+     */
+    public function testMapUrlSafePathToIdTrailingSlashException(): void
+    {
+        $mediaManager = $this->getMediaManager();
+
+        $mediaManager->mapUrlSafePathToId('test/media/mydirectory/', '/test/media');
+    }
+
     public function mapUrlSafePathToIdProvider()
     {
         return array(
